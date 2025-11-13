@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Front-End Dev @ Mohawk · Portfolio</title>
+
+
+
+    <!-- Fonts -->
+
+    <link
+
+      rel="preconnect"
+
+      href="https://fonts.googleapis.com"
+
+    />
+
+    <link
+
+      rel="preconnect"
+
+      href="https://fonts.gstatic.com"
+
+      crossorigin
+
+    />
+
+    <link
+
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+
+      rel="stylesheet"
+
+    />
+
+
+
+    <!-- Tailwind CSS CDN v4 -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+
+    <style>
+
+      :root {
+
+        --pink-neon: #ff4bcb;
+
+        --pink-soft: #ff9edb;
+
+        --purple-deep: #4c1d95;
+
+        --bg-deep: #020617;
+
+        --bg-terminal: #050816;
+
+        --grid-line: rgba(248, 250, 252, 0.06);
+
+      }
+
+
+
+      * {
+
+        box-sizing: border-box;
+
+      }
+
+
+
+      body {
+
+        font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+
+          "Segoe UI", sans-serif;
+
+        background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+
+        color: #fdf2ff;
+
+        scroll-behavior: smooth;
+
+      }
+
+
+body.theme-soft {
+  /* A dark, moody gradient using your purple and neon pink */
+  background: radial-gradient(circle at top, var(--purple-deep) 0, var(--pink-neon) 100%);
+
+  /* Text must be light to be readable on this dark background */
+  color: #fdf2ff; /* Your default light text color */
+}
+
+
+
+      .font-mono-custom {
+
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+
+          Consolas, "Liberation Mono", "Courier New", monospace;
+
+      }
+
+
+
+      /* Subtle grid background */
+
+      .bg-grid::before {
+
+        content: "";
+
+        position: fixed;
+
+        inset: 0;
+
+        background-image: linear-gradient(
+
+            to right,
+
+            var(--grid-line) 1px,
+
+            transparent 1px
+
+          ),
+
+          linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+
+        background-size: 40px 40px;
+
+        opacity: 0.3;
+
+        pointer-events: none;
+
+        z-index: -1;
+
+      }
+
+
+
+      /* Glow orbs */
+
+      .orb {
+
+        position: absolute;
+
+        border-radius: 999px;
+
+        filter: blur(60px);
+
+        opacity: 0.75;
+
+        mix-blend-mode: screen;
+
+        pointer-events: none;
+
+      }
+
+
+
+      .orb-pink {
+
+        background: radial-gradient(circle at center, var(--pink-neon), transparent);
+
+      }
+
+
+
+      .orb-purple {
+
+        background: radial-gradient(circle at center, #a855f7, transparent);
+
+      }
+
+
+
+      /* Scrollbar styling */
+
+      ::-webkit-scrollbar {
+
+        width: 8px;
+
+      }
+
+      ::-webkit-scrollbar-track {
+
+        background: rgba(15, 23, 42, 0.9);
+
+      }
+
+      ::-webkit-scrollbar-thumb {
+
+        background: linear-gradient(180deg, var(--pink-neon), #a855f7);
+
+        border-radius: 999px;
+
+      }
+
+
+
+      /* Type cursor */
+
+      .cursor::after {
+
+        content: "▌";
+
+        margin-left: 2px;
+
+        animation: blink 1s steps(1, start) infinite;
+
+      }
+
+
+
+      @keyframes blink {
+
+        50% {
+
+          opacity: 0;
+
+        }
+
+      }
+
+
+
+      /* Terminal noise overlay */
+
+      .noise-overlay::before {
+
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1600 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='noStitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E");
+
+        mix-blend-mode: soft-light;
+
+        opacity: 0.6;
+
+        pointer-events: none;
+
+      }
+
+
+
+      /* Floating animation */
+
+      .float {
+
+        animation: float 12s ease-in-out infinite;
+
+      }
+
+
+
+      @keyframes float {
+
+        0%,
+
+        100% {
+
+          transform: translateY(0px);
+
+        }
+
+        50% {
+
+          transform: translateY(-12px);
+
+        }
+
+      }
+
+
+
+      /* Button shine */
+
+      .btn-shine {
+
+        position: relative;
+
+        overflow: hidden;
+
+      }
+
+      .btn-shine::after {
+
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background: linear-gradient(
+
+          120deg,
+
+          transparent 0%,
+
+          rgba(255, 255, 255, 0.4) 40%,
+
+          transparent 80%
+
+        );
+
+        transform: translateX(-100%);
+
+        transition: transform 0.7s ease;
+
+      }
+
+      .btn-shine:hover::after {
+
+        transform: translateX(100%);
+
+      }
+
+
+
+      /* Section max width utility */
+
+      .section-wrapper {
+
+        max-width: 1120px;
+
+      }
+
+    </style>
+
+  </head>
+
+
+
+  <body class="bg-grid min-h-screen text-pink-50 antialiased">
+
+    <!-- Glowy background orbs -->
+
+    <div class="orb orb-pink w-[420px] h-[420px] -top-24 -left-10"></div>
+
+    <div class="orb orb-purple w-[380px] h-[380px] top-40 -right-10"></div>
+
+
+
+    <!-- Page wrapper -->
+
+    <div class="relative z-10 flex min-h-screen flex-col">
+
+      <!-- NAVBAR -->
+
+      <header class="sticky top-0 z-30 border-b border-pink-500/10 bg-black/40 backdrop-blur-xl">
+
+        <nav class="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3">
+
+          <div class="flex items-center gap-3">
+
+            <div
+
+              class="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-pink-500 to-purple-600 text-xl font-bold text-black shadow-[0_0_30px_rgba(236,72,153,0.7)]"
+
+            >
+
+              &lt;/&gt;
+
+            </div>
+
+            <div>
+
+              <p class="text-xs uppercase tracking-[0.3em] text-pink-200/70">
+
+                Mohawk Software Engineering
+
+              </p>
+
+              <p class="text-sm font-semibold text-pink-50">
+
+                Front-End Dev in Training
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="flex items-center gap-5 text-xs font-medium text-pink-100">
+
+            <a href="#about" class="hover:text-pink-300">About</a>
+
+            <a href="#skills" class="hover:text-pink-300">Skills</a>
+
+            <a href="#projects" class="hover:text-pink-300">Projects</a>
+
+            <a href="#contact" class="hover:text-pink-300">Contact</a>
+
+            <button
+
+              id="themeToggle"
+
+              class="btn-shine rounded-full border border-pink-400/60 bg-pink-500/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-pink-100 shadow-[0_0_18px_rgba(236,72,153,0.6)] hover:border-pink-300 hover:bg-pink-500/30"
+
+            >
+
+              ✦ toggle vibe
+
+            </button>
+
+          </div>
+
+        </nav>
+
+      </header>
+
+
+
+      <!-- MAIN CONTENT -->
+
+      <main class="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-16 px-4 pb-20 pt-10">
+
+        <!-- HERO SECTION -->
+
+        <section
+
+          id="about"
+
+          class="flex flex-col items-center gap-10 md:flex-row md:items-stretch"
+
+        >
+
+          <!-- Left: Intro / text -->
+
+          <div class="flex-1 space-y-6">
+
+            <p class="text-xs font-mono-custom uppercase tracking-[0.35em] text-pink-200/80">
+
+              $ whoami
+
+            </p>
+
+            <h1 class="text-balance text-4xl font-semibold leading-tight md:text-5xl">
+
+              Hi, I'm a
+
+              <span class="bg-gradient-to-r from-pink-400 via-fuchsia-400 to-sky-400 bg-clip-text text-transparent">
+
+                Mohawk Software Engineering student
+
+              </span>
+
+              focused on
+
+              <span class="text-pink-300">front-end development</span>.
+
+            </h1>
+
+            <p class="max-w-xl text-sm text-pink-100/80">
+
+              I live where <span class="font-semibold text-pink-200">HTML &amp; CSS</span>
+
+              meet the backend, and where
+
+              <span class="font-semibold text-pink-200">JavaScript</span> adds all the
+
+              personality. I love fun, techy UIs, terminal vibes, and building interfaces
+
+              that feel like they belong in a sci‑fi movie—but still make sense to real
+
+              humans.
+
+            </p>
+
+
+
+            <div class="space-y-2">
+
+              <p class="text-xs font-mono-custom uppercase tracking-[0.25em] text-pink-200/80">
+
+                &gt; current modes
+
+              </p>
+
+              <p class="cursor text-sm font-mono-custom text-pink-100">
+
+                <span id="typewriter"></span>
+
+              </p>
+
+            </div>
+
+
+
+            <div class="flex flex-wrap gap-3 pt-2">
+
+              <a
+
+                href="#projects"
+
+                class="btn-shine flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black shadow-[0_18px_40px_rgba(236,72,153,0.6)] hover:shadow-[0_18px_45px_rgba(236,72,153,0.9)]"
+
+              >
+
+                View Projects
+
+                <span class="text-[16px]">↳</span>
+
+              </a>
+
+              <a
+
+                href="#contact"
+
+                class="rounded-full border border-pink-400/60 bg-black/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-pink-100 hover:border-pink-300 hover:bg-black/70"
+
+              >
+
+                Let's talk UI
+
+              </a>
+
+            </div>
+
+
+
+            <div class="mt-3 flex flex-wrap items-center gap-3 text-[11px] text-pink-200/80">
+
+              <span
+
+                class="rounded-full border border-pink-400/40 bg-black/40 px-3 py-1 font-mono-custom text-[10px] uppercase tracking-[0.2em]"
+
+                >html / css → backend</span
+
+              >
+
+              <span
+
+                class="rounded-full border border-pink-400/40 bg-black/40 px-3 py-1 font-mono-custom text-[10px] uppercase tracking-[0.2em]"
+
+                >js in the browser</span
+
+              >
+
+              <span
+
+                class="rounded-full border border-purple-400/40 bg-black/40 px-3 py-1 font-mono-custom text-[10px] uppercase tracking-[0.2em]"
+
+                >pop culture &amp; ai nerd</span
+
+              >
+
+            </div>
+
+          </div>
+
+
+
+          <!-- Right: Terminal card -->
+
+          <div class="float relative mt-6 w-full max-w-md flex-1 md:mt-0">
+
+            <div
+
+              class="noise-overlay relative overflow-hidden rounded-2xl border border-pink-400/40 bg-gradient-to-b from-slate-950/95 via-slate-950 to-slate-950/95 shadow-[0_25px_80px_rgba(15,23,42,0.95)]"
+
+            >
+
+              <!-- Title bar -->
+
+              <div
+
+                class="flex items-center justify-between border-b border-pink-400/30 bg-slate-950/90 px-4 py-2"
+
+              >
+
+                <div class="flex items-center gap-1.5">
+
+                  <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
+
+                  <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
+
+                  <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
+
+                </div>
+
+                <p
+
+                  class="font-mono-custom text-[11px] text-pink-100/90"
+
+                >
+
+                  /dev/portfolio — terminal
+
+                </p>
+
+                <span class="text-xs text-pink-100/60">♥︎</span>
+
+              </div>
+
+
+
+              <!-- Terminal body -->
+
+              <div class="space-y-3 px-4 pb-4 pt-3 font-mono-custom text-xs text-pink-100">
+
+                <p class="text-[11px] text-pink-300/90">
+
+                  tip: type <span class="font-semibold">help</span> to explore
+
+                </p>
+
+                <div
+
+                  id="terminalOutput"
+
+                  class="max-h-56 space-y-1 overflow-y-auto pr-1 text-[11px] leading-relaxed"
+
+                >
+
+                  <p>
+
+                    visitor@portfolio:~$ <span class="text-pink-300">npm create</span>
+
+                    <span class="text-sky-300"> front-end-dream</span>
+
+                  </p>
+
+                  <p class="text-pink-200/80">
+
+                    ▶ booting up: mohawk software engineering student with a love for
+
+                    colorful UIs, clean code, and all things pop culture + AI.
+
+                  </p>
+
+                </div>
+
+
+
+                <!-- Input line -->
+
+                <div class="flex items-center gap-2 pt-1">
+
+                  <span class="text-[11px] text-pink-300">guest@terminal:~$</span>
+
+                  <input
+
+                    id="terminalInput"
+
+                    type="text"
+
+                    autocomplete="off"
+
+                    placeholder="help | about | skills | projects | clear"
+
+                    class="w-full border-none bg-transparent text-[11px] text-pink-100 placeholder-pink-400/60 focus:outline-none"
+
+                  />
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- SKILLS SECTION -->
+
+        <section id="skills" class="section-wrapper mx-auto space-y-6">
+
+          <div class="flex items-center justify-between gap-4">
+
+            <div>
+
+              <p class="text-xs font-mono-custom uppercase tracking-[0.35em] text-pink-200/80">
+
+                $ skills
+
+              </p>
+
+              <h2 class="mt-1 text-xl font-semibold text-pink-50">Front-End Toolkit</h2>
+
+              <p class="max-w-xl text-xs text-pink-100/80">
+
+                I like building interfaces that feel like a mix of a code editor, a cozy
+
+                Tumblr theme, and a sci‑fi command deck. Here’s the stack I’m growing.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="grid gap-5 md:grid-cols-3">
+
+            <!-- Column 1 -->
+
+            <div class="space-y-3 rounded-2xl border border-pink-400/30 bg-black/40 p-4">
+
+              <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-pink-200">
+
+                Core Front-End
+
+              </h3>
+
+              <div class="flex flex-wrap gap-2 text-[11px]">
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  HTML5 semantics
+
+                </span>
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  Modern CSS
+
+                </span>
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  Flexbox &amp; Grid
+
+                </span>
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  Responsive design
+
+                </span>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- Column 2 -->
+
+            <div class="space-y-3 rounded-2xl border border-pink-400/30 bg-black/40 p-4">
+
+              <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-pink-200">
+
+                JavaScript &amp; Logic
+
+              </h3>
+
+              <div class="flex flex-wrap gap-2 text-[11px]">
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  ES6+ fundamentals
+
+                </span>
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  DOM interactivity
+
+                </span>
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  API consumption
+
+                </span>
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  Async / promises
+
+                </span>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- Column 3 -->
+
+            <div class="space-y-3 rounded-2xl border border-pink-400/30 bg-black/40 p-4">
+
+              <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-pink-200">
+
+                Connecting to Backend
+
+              </h3>
+
+              <div class="flex flex-wrap gap-2 text-[11px]">
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  RESTful patterns
+
+                </span>
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  JSON data flows
+
+                </span>
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  Client ↔ server thinking
+
+                </span>
+
+                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                  Debugging tools
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="mt-1 flex flex-wrap gap-2 text-[11px] text-pink-100/80">
+
+            <span class="rounded-full border border-pink-400/30 bg-black/40 px-3 py-1">
+
+              Tailwind &amp; utility-first styling
+
+            </span>
+
+            <span class="rounded-full border border-pink-400/30 bg-black/40 px-3 py-1">
+
+              Design systems &amp; component thinking
+
+            </span>
+
+            <span class="rounded-full border border-pink-400/30 bg-black/40 px-3 py-1">
+
+              Accessibility‑minded layouts
+
+            </span>
+
+            <span class="rounded-full border border-pink-400/30 bg-black/40 px-3 py-1">
+
+              Pixel‑perfect + vibes‑perfect
+
+            </span>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- PROJECTS SECTION -->
+
+        <section id="projects" class="section-wrapper mx-auto space-y-6">
+
+          <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+
+            <div>
+
+              <p class="text-xs font-mono-custom uppercase tracking-[0.35em] text-pink-200/80">
+
+                $ projects
+
+              </p>
+
+              <h2 class="mt-1 text-xl font-semibold text-pink-50">
+
+                UI Experiments &amp; Pop Culture Dev</h2>
+
+              <p class="max-w-xl text-xs text-pink-100/80">
+
+                A mix of learning projects, vibes-driven interfaces, and experiments that
+
+                connect HTML/CSS front ends to JavaScript logic and backend‑style data.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="grid gap-5 md:grid-cols-3">
+
+            <!-- Project 1 -->
+
+            <article
+
+              class="group flex flex-col justify-between rounded-2xl border border-pink-400/30 bg-black/40 p-4 transition-transform duration-300 hover:-translate-y-1 hover:border-pink-300/70 hover:bg-black/70"
+
+            >
+
+              <div class="space-y-2">
+
+                <h3 class="text-sm font-semibold text-pink-50">Neo-Terminal Landing Page</h3>
+
+                <p class="text-[11px] text-pink-100/80">
+
+                  A single-page site styled like a hacker console but soft and pink,
+
+                  featuring command-line navigation and glowing UI elements.
+
+                </p>
+
+                <div class="mt-2 flex flex-wrap gap-1.5 text-[10px]">
+
+                  <span class="rounded-full bg-pink-500/15 px-2 py-0.5 text-pink-100">
+
+                    HTML
+
+                  </span>
+
+                  <span class="rounded-full bg-pink-500/15 px-2 py-0.5 text-pink-100">
+
+                    CSS animations
+
+                  </span>
+
+                  <span class="rounded-full bg-pink-500/15 px-2 py-0.5 text-pink-100">
+
+                    Vanilla JS
+
+                  </span>
+
+                </div>
+
+              </div>
+
+              <p class="mt-3 text-[10px] font-mono-custom text-pink-300/80">
+
+                status: <span class="text-emerald-300">"online"</span>
+
+              </p>
+
+            </article>
+
+
+
+            <!-- Project 2 -->
+
+            <article
+
+              class="group flex flex-col justify-between rounded-2xl border border-pink-400/30 bg-black/40 p-4 transition-transform duration-300 hover:-translate-y-1 hover:border-pink-300/70 hover:bg-black/70"
+
+            >
+
+              <div class="space-y-2">
+
+                <h3 class="text-sm font-semibold text-pink-50">mary world</h3>
+
+                <p class="text-[11px] text-pink-100/80">
+
+                  A pink blog connected to backend so posts stay up forever, uses an admin login system with Supabase
+
+                </p>
+
+                <div class="mt-2 flex flex-wrap gap-1.5 text-[10px]">
+
+                  <span class="rounded-full bg-pink-500/15 px-2 py-0.5 text-pink-100">
+
+                    HTML / CSS
+
+                  </span>
+
+                  <span class="rounded-full bg-pink-500/15 px-2 py-0.5 text-pink-100">
+
+                    Supabase
+
+                  </span>
+
+                  <span class="rounded-full bg-pink-500/15 px-2 py-0.5 text-pink-100">
+
+                    consistent storage
+
+                  </span>
+
+                </div>
+
+              </div>
+
+              <p class="mt-3 text-[10px] font-mono-custom text-pink-300/80">
+
+                status: <span class="text-amber-300">"online"</span>
+
+              </p>
+
+            </article>
+
+
+
+            <!-- Project 3 -->
+
+            <article
+
+              class="group flex flex-col justify-between rounded-2xl border border-pink-400/30 bg-black/40 p-4 transition-transform duration-300 hover:-translate-y-1 hover:border-pink-300/70 hover:bg-black/70"
+
+            >
+
+              <div class="space-y-2">
+
+                <h3 class="text-sm font-semibold text-pink-50">autoparts site</h3>
+
+                <p class="text-[11px] text-pink-100/80">
+
+                  An autoparts site with two pages. Features a working admin login system, connection to render, a working form, and part uploading.
+
+                </p>
+
+                <div class="mt-2 flex flex-wrap gap-1.5 text-[10px]">
+
+                  <span class="rounded-full bg-pink-500/15 px-2 py-0.5 text-pink-100">
+
+                    admin use
+
+                  </span>
+
+                  <span class="rounded-full bg-pink-500/15 px-2 py-0.5 text-pink-100">
+
+                    JS interactions
+
+                  </span>
+
+                  <span class="rounded-full bg-pink-500/15 px-2 py-0.5 text-pink-100">
+
+                    forms
+
+                  </span>
+
+                </div>
+
+              </div>
+
+              <p class="mt-3 text-[10px] font-mono-custom text-pink-300/80">
+
+                status: <span class="text-sky-300">"online"</span>
+
+              </p>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- CONTACT SECTION -->
+
+        <section id="contact" class="section-wrapper mx-auto space-y-6">
+
+          <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+
+            <div>
+
+              <p class="text-xs font-mono-custom uppercase tracking-[0.35em] text-pink-200/80">
+
+                $ contact
+
+              </p>
+
+              <h2 class="mt-1 text-xl font-semibold text-pink-50">Let's Build Something! &amp; Clever</h2>
+
+              <p class="max-w-xl text-xs text-pink-100/80">
+
+                Want a UI that looks like a terminal, a candy shop, or your favorite
+
+                fandom’s home screen—and still works cleanly under the hood? Reach out and
+
+                let’s brainstorm.
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <div
+
+            class="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-start"
+
+          >
+
+            <!-- Contact form (frontend only) -->
+
+           <form
+
+  id="contactForm"
+
+  action="https://formspree.io/f/mgvrvnja"
+
+  method="POST"
+
+  class="space-y-4 rounded-2xl border border-pink-400/30 bg-black/40 p-5"
+
+>
+
+              <div class="grid gap-4 md:grid-cols-2">
+
+                <div class="space-y-1 text-xs">
+
+                  <label for="name" class="text-pink-100/90">Name</label>
+
+                  <input
+
+                    id="name"
+
+                    type="text"
+
+                    placeholder="Your future designer/dev friend"
+
+                    class="w-full rounded-lg border border-pink-400/30 bg-black/60 px-3 py-2 text-xs text-pink-50 placeholder-pink-400/60 focus:border-pink-300 focus:outline-none"
+
+                  />
+
+                </div>
+
+                <div class="space-y-1 text-xs">
+
+                  <label for="email" class="text-pink-100/90">Email</label>
+
+                  <input
+
+                    id="email"
+
+                    type="email"
+
+                    placeholder="you@example.com"
+
+                    class="w-full rounded-lg border border-pink-400/30 bg-black/60 px-3 py-2 text-xs text-pink-50 placeholder-pink-400/60 focus:border-pink-300 focus:outline-none"
+
+                  />
+
+                </div>
+
+              </div>
+
+
+
+              <div class="space-y-1 text-xs">
+
+                <label for="message" class="text-pink-100/90">Message</label>
+
+                <textarea
+
+                  id="message"
+
+                  rows="4"
+
+                  placeholder="Tell me about the project, the fandom, and the vibe."
+
+                  class="w-full rounded-lg border border-pink-400/30 bg-black/60 px-3 py-2 text-xs text-pink-50 placeholder-pink-400/60 focus:border-pink-300 focus:outline-none"
+
+                ></textarea>
+
+              </div>
+
+
+
+              <button
+
+                type="submit"
+
+                class="btn-shine flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-black shadow-[0_18px_40px_rgba(236,72,153,0.6)] hover:shadow-[0_18px_45px_rgba(236,72,153,0.9)]"
+
+              >
+
+                Send message
+
+                <span>✉︎</span>
+
+              </button>
+
+
+
+              <p id="formStatus" class="text-[11px] text-pink-200/80"></p>
+
+            </form>
+
+
+
+            <!-- Contact info / social -->
+
+            <div class="space-y-4 rounded-2xl border border-pink-400/30 bg-black/40 p-5">
+
+              <h3 class="text-xs font-semibold uppercase tracking-[0.25em] text-pink-200">
+
+                Direct Ping
+
+              </h3>
+
+              <div class="space-y-2 text-xs text-pink-100/85">
+
+                <p>
+
+                  Email
+
+                  <a
+
+                    href="mailto:mohawk.student@example.com"
+
+                    class="ml-1 font-semibold text-pink-200 hover:text-pink-100"
+
+                    >miryam.ali@mohawkcollege.com</a
+
+                  >
+
+                </p>
+
+                <p>
+
+                  Based around
+
+                  <span class="font-semibold text-pink-200">Mohawk College</span>, always
+
+                  online in the browser.
+
+                </p>
+
+              </div>
+
+              <div class="space-y-1 text-xs">
+
+                <p class="font-mono-custom text-pink-200/90">#links</p>
+
+                <div class="flex flex-wrap gap-2 text-[11px]">
+
+                  <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                    GitHub • EUCALIPSIS
+
+                  </span>
+
+                  <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                    LinkedIn • MIRYAM ALI
+
+                  </span>
+
+                  <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
+
+                    <a href="https://open.spotify.com/playlist/12jzgBnuoO6bPyMIIeYcrI?si=rKvGHvkDTFSXPovBWx5uIQ"> the vibes 🎧</a> 
+
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+
+
+      <!-- FOOTER -->
+
+      <footer class="border-t border-pink-500/10 bg-black/40 py-4">
+
+        <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-4 text-[10px] text-pink-200/80">
+
+          <p>
+
+            &copy; <span id="year"></span> Mohawk front-end student. Built with HTML, CSS,
+
+            JS &amp; way too many pink gradients.
+
+          </p>
+
+          <button
+
+            id="backToTop"
+
+            class="rounded-full border border-pink-400/40 bg-black/60 px-3 py-1 font-mono-custom text-[10px] uppercase tracking-[0.2em] text-pink-100 hover:border-pink-300 hover:bg-black/80"
+
+          >
+
+            ↑ top
+
+          </button>
+
+        </div>
+
+      </footer>
+
+    </div>
+
+
+
+    <!-- SCRIPTS -->
+
+    <script>
+
+      // Smooth scrolling for internal links
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+
+        link.addEventListener('click', (e) => {
+
+          const targetId = link.getAttribute('href');
+
+          if (!targetId || targetId === '#') return;
+
+          const target = document.querySelector(targetId);
+
+          if (target) {
+
+            e.preventDefault();
+
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          }
+
+        });
+
+      });
+
+
+
+      // Back to top
+
+      const backToTopBtn = document.getElementById('backToTop');
+
+      if (backToTopBtn) {
+
+        backToTopBtn.addEventListener('click', () => {
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        });
+
+      }
+
+
+
+      // Dynamic year
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+
+
+      // Typewriter effect
+
+      const typewriterElement = document.getElementById('typewriter');
+
+      const phrases = [
+
+        'front-end focused • learning by building',
+
+        'HTML & CSS hooked up to JavaScript brains',
+
+        'terminal aesthetics, pop culture references, cozy UI',
+
+        'small projects now → big, delightful interfaces later',
+
+        'curious about AI, but still loves simple clean code'
+
+      ];
+
+      let currentPhraseIndex = 0;
+
+      let currentCharIndex = 0;
+
+      let isDeleting = false;
+
+
+
+      function typeLoop() {
+
+        const currentPhrase = phrases[currentPhraseIndex];
+
+        if (isDeleting) {
+
+          currentCharIndex--;
+
+        } else {
+
+          currentCharIndex++;
+
+        }
+
+
+
+        const textToShow = currentPhrase.slice(0, currentCharIndex);
+
+        typewriterElement.textContent = textToShow;
+
+
+
+        let typingSpeed = 60;
+
+        if (isDeleting) typingSpeed /= 2;
+
+
+
+        if (!isDeleting && currentCharIndex === currentPhrase.length) {
+
+          typingSpeed = 1400;
+
+          isDeleting = true;
+
+        } else if (isDeleting && currentCharIndex === 0) {
+
+          isDeleting = false;
+
+          currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+
+          typingSpeed = 300;
+
+        }
+
+
+
+        setTimeout(typeLoop, typingSpeed);
+
+      }
+
+
+
+      if (typewriterElement) {
+
+        typeLoop();
+
+      }
+
+
+
+      // Theme toggle (two vibes: terminal dark vs soft neon)
+
+      const themeToggleBtn = document.getElementById('themeToggle');
+
+      const body = document.body;
+
+      const THEME_KEY = 'portfolioThemePreference';
+
+
+
+      function applyTheme(theme) {
+
+        if (theme === 'soft') {
+
+          body.classList.add('theme-soft');
+
+          themeToggleBtn.textContent = '✦ terminal vibe';
+
+        } else {
+
+          body.classList.remove('theme-soft');
+
+          themeToggleBtn.textContent = '✦ soft neon';
+
+        }
+
+      }
+
+
+
+      function getPreferredTheme() {
+
+        return localStorage.getItem(THEME_KEY) || 'terminal';
+
+      }
+
+
+
+      function setPreferredTheme(theme) {
+
+        localStorage.setItem(THEME_KEY, theme);
+
+      }
+
+
+
+      if (themeToggleBtn) {
+
+        const savedTheme = getPreferredTheme();
+
+        applyTheme(savedTheme);
+
+
+
+        themeToggleBtn.addEventListener('click', () => {
+
+          const current = body.classList.contains('theme-soft') ? 'soft' : 'terminal';
+
+          const next = current === 'soft' ? 'terminal' : 'soft';
+
+          applyTheme(next);
+
+          setPreferredTheme(next);
+
+        });
+
+      }
+
+
+
+      // Terminal emulator
+
+      const terminalOutput = document.getElementById('terminalOutput');
+
+      const terminalInput = document.getElementById('terminalInput');
+
+
+
+      const terminalCommands = {
+
+        help: {
+
+          lines: [
+
+            'available commands:',
+
+            '  about    — more about this student',
+
+            '  skills   — front-end tech stack',
+
+            '  projects — little UI experiments',
+
+            '  clear    — clear the terminal'
+
+          ]
+
+        },
+
+        about: {
+
+          lines: [
+
+            'mohawk software engineering student, front-end focused.',
+
+            'loves colorful terminals, pop culture UI, and learning by shipping projects.',
+
+            'goal: build interfaces that feel like your favorite fandom homepage.'
+
+          ]
+
+        },
+
+        skills: {
+
+          lines: [
+
+            'html • css • responsive layouts • flexbox / grid',
+
+            'vanilla javascript • dom manipulation • api calls',
+
+            'connecting front-ends to backend-style data flows',
+
+            'designing interfaces that are both cute and readable'
+
+          ]
+
+        },
+
+        projects: {
+
+          lines: [
+
+            '- neo-terminal landing: sci-fi inspired homepage with pink glow.',
+
+            '- watchlist dashboard: track shows / anime in a js-powered ui.',
+
+            '- ai prompt playground: experiment with prompt ideas in-browser.'
+
+          ]
+
+        }
+
+      };
+
+
+
+      function appendTerminalLine(text, className = '') {
+
+        const p = document.createElement('p');
+
+        if (className) p.className = className;
+
+        p.textContent = text;
+
+        terminalOutput.appendChild(p);
+
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+      }
+
+
+
+      if (terminalInput && terminalOutput) {
+
+        terminalInput.addEventListener('keydown', (e) => {
+
+          if (e.key === 'Enter') {
+
+            const value = terminalInput.value.trim();
+
+            if (!value) return;
+
+
+
+            appendTerminalLine(`guest@terminal:~$ ${value}`, 'text-[11px] text-pink-300');
+
+
+
+            if (value === 'clear') {
+
+              terminalOutput.innerHTML = '';
+
+            } else if (terminalCommands[value]) {
+
+              terminalCommands[value].lines.forEach((line) =>
+
+                appendTerminalLine(line, 'text-[11px] text-pink-100/90')
+
+              );
+
+            } else {
+
+              appendTerminalLine(
+
+                `command not found: ${value} — but the vibe is immaculate`,
+
+                'text-[11px] text-pink-200/80'
+
+              );
+
+            }
+
+
+
+            terminalInput.value = '';
+
+          }
+
+        });
+
+      }
+
+// Contact form (AJAX submission to Formspree)
+
+      const contactForm = document.getElementById('contactForm');
+
+      const formStatus = document.getElementById('formStatus');
+
+
+
+      if (contactForm && formStatus) {
+
+        contactForm.addEventListener('submit', async (e) => {
+
+          e.preventDefault();
+
+          formStatus.textContent = 'Sending...';
+
+          
+
+          const form = e.target;
+
+          const data = new FormData(form);
+
+
+
+          try {
+
+            const response = await fetch(form.action, {
+
+              method: form.method,
+
+              body: data,
+
+              headers: {
+
+                'Accept': 'application/json' // Request JSON response from Formspree
+
+              }
+
+            });
+
+
+
+            if (response.ok) {
+
+              formStatus.textContent = 'Message sent! Thanks for reaching out.';
+
+              form.reset(); // Clear the form fields
+
+  D         } else {
+
+              // Handle errors from Formspree
+
+              const responseData = await response.json();
+
+              if (responseData.errors) {
+
+                formStatus.textContent = responseData.errors.map(error => error.message).join(', ');
+
+i             } else {
+
+                formStatus.textContent = 'Oops! Something went wrong. Please try again.';
+
+              }
+
+            }
+
+          } catch (error) {
+
+            // Handle network errors
+
+            formStatus.textContent = 'Network error. Please check your connection.';
+
+          }
+
+        });
+
+      }
+
+    </script>
+
+  </body>
+
+</html>
