@@ -1131,9 +1131,13 @@ body.theme-soft {
 
                     id="name"
 
+                    name="name"
+
                     type="text"
 
                     placeholder="Your future designer/dev friend"
+
+                    required
 
                     class="w-full rounded-lg border border-pink-400/30 bg-black/60 px-3 py-2 text-xs text-pink-50 placeholder-pink-400/60 focus:border-pink-300 focus:outline-none"
 
@@ -1149,9 +1153,13 @@ body.theme-soft {
 
                     id="email"
 
+                    name="email"
+
                     type="email"
 
                     placeholder="you@example.com"
+
+                    required
 
                     class="w-full rounded-lg border border-pink-400/30 bg-black/60 px-3 py-2 text-xs text-pink-50 placeholder-pink-400/60 focus:border-pink-300 focus:outline-none"
 
@@ -1171,9 +1179,13 @@ body.theme-soft {
 
                   id="message"
 
+                  name="message"
+
                   rows="4"
 
                   placeholder="Tell me about the project, the fandom, and the vibe."
+
+                  required
 
                   class="w-full rounded-lg border border-pink-400/30 bg-black/60 px-3 py-2 text-xs text-pink-50 placeholder-pink-400/60 focus:border-pink-300 focus:outline-none"
 
@@ -1715,7 +1727,7 @@ body.theme-soft {
 
               form.reset(); // Clear the form fields
 
-  D         } else {
+            } else {
 
               // Handle errors from Formspree
 
@@ -1725,7 +1737,7 @@ body.theme-soft {
 
                 formStatus.textContent = responseData.errors.map(error => error.message).join(', ');
 
-i             } else {
+              } else {
 
                 formStatus.textContent = 'Oops! Something went wrong. Please try again.';
 
