@@ -8,11 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Front-End Dev @ Mohawk · Portfolio</title>
-
-
-
-    <!-- Fonts -->
+    <title>Mary · Portfolio</title>
 
     <link
 
@@ -92,11 +88,11 @@
 
 
 body.theme-soft {
-  /* A dark, moody gradient using your purple and neon pink */
+
   background: radial-gradient(circle at top, var(--purple-deep) 0, var(--pink-neon) 100%);
 
-  /* Text must be light to be readable on this dark background */
-  color: #fdf2ff; /* Your default light text color */
+ 
+  color: #fdf2ff; 
 }
 
 
@@ -111,7 +107,7 @@ body.theme-soft {
 
 
 
-      /* Subtle grid background */
+  
 
       .bg-grid::before {
 
@@ -145,7 +141,7 @@ body.theme-soft {
 
 
 
-      /* Glow orbs */
+
 
       .orb {
 
@@ -181,7 +177,7 @@ body.theme-soft {
 
 
 
-      /* Scrollbar styling */
+
 
       ::-webkit-scrollbar {
 
@@ -205,7 +201,7 @@ body.theme-soft {
 
 
 
-      /* Type cursor */
+
 
       .cursor::after {
 
@@ -231,7 +227,6 @@ body.theme-soft {
 
 
 
-      /* Terminal noise overlay */
 
       .noise-overlay::before {
 
@@ -253,7 +248,7 @@ body.theme-soft {
 
 
 
-      /* Floating animation */
+
 
       .float {
 
@@ -283,7 +278,7 @@ body.theme-soft {
 
 
 
-      /* Button shine */
+
 
       .btn-shine {
 
@@ -327,7 +322,7 @@ body.theme-soft {
 
 
 
-      /* Section max width utility */
+
 
       .section-wrapper {
 
@@ -343,7 +338,7 @@ body.theme-soft {
 
   <body class="bg-grid min-h-screen text-pink-50 antialiased">
 
-    <!-- Glowy background orbs -->
+
 
     <div class="orb orb-pink w-[420px] h-[420px] -top-24 -left-10"></div>
 
@@ -351,11 +346,9 @@ body.theme-soft {
 
 
 
-    <!-- Page wrapper -->
 
     <div class="relative z-10 flex min-h-screen flex-col">
 
-      <!-- NAVBAR -->
 
       <header class="sticky top-0 z-30 border-b border-pink-500/10 bg-black/40 backdrop-blur-xl">
 
@@ -423,11 +416,10 @@ body.theme-soft {
 
 
 
-      <!-- MAIN CONTENT -->
+
 
       <main class="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-16 px-4 pb-20 pt-10">
 
-        <!-- HERO SECTION -->
 
         <section
 
@@ -437,7 +429,6 @@ body.theme-soft {
 
         >
 
-          <!-- Left: Intro / text -->
 
           <div class="flex-1 space-y-6">
 
@@ -537,25 +528,19 @@ body.theme-soft {
 
                 class="rounded-full border border-pink-400/40 bg-black/40 px-3 py-1 font-mono-custom text-[10px] uppercase tracking-[0.2em]"
 
-                >html / css → backend</span
-
-              >
+                >html / css</span>
 
               <span
 
                 class="rounded-full border border-pink-400/40 bg-black/40 px-3 py-1 font-mono-custom text-[10px] uppercase tracking-[0.2em]"
 
-                >js in the browser</span
-
-              >
+                >js in the browser</span>
 
               <span
 
                 class="rounded-full border border-purple-400/40 bg-black/40 px-3 py-1 font-mono-custom text-[10px] uppercase tracking-[0.2em]"
 
-                >pop culture &amp; ai nerd</span
-
-              >
+                >pop culture &amp; ai nerd</span>
 
             </div>
 
@@ -563,7 +548,6 @@ body.theme-soft {
 
 
 
-          <!-- Right: Terminal card -->
 
           <div class="float relative mt-6 w-full max-w-md flex-1 md:mt-0">
 
@@ -573,7 +557,7 @@ body.theme-soft {
 
             >
 
-              <!-- Title bar -->
+
 
               <div
 
@@ -607,7 +591,7 @@ body.theme-soft {
 
 
 
-              <!-- Terminal body -->
+   
 
               <div class="space-y-3 px-4 pb-4 pt-3 font-mono-custom text-xs text-pink-100">
 
@@ -643,10 +627,6 @@ body.theme-soft {
 
                 </div>
 
-
-
-                <!-- Input line -->
-
                 <div class="flex items-center gap-2 pt-1">
 
                   <span class="text-[11px] text-pink-300">guest@terminal:~$</span>
@@ -676,8 +656,6 @@ body.theme-soft {
         </section>
 
 
-
-        <!-- SKILLS SECTION -->
 
         <section id="skills" class="section-wrapper mx-auto space-y-6">
 
@@ -763,27 +741,10 @@ body.theme-soft {
 
               <div class="flex flex-wrap gap-2 text-[11px]">
 
-                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
-
-                  ES6+ fundamentals
-
-                </span>
-
-                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
-
-                  DOM interactivity
-
-                </span>
 
                 <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
 
                   API consumption
-
-                </span>
-
-                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
-
-                  Async / promises
 
                 </span>
 
@@ -804,18 +765,6 @@ body.theme-soft {
               </h3>
 
               <div class="flex flex-wrap gap-2 text-[11px]">
-
-                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
-
-                  RESTful patterns
-
-                </span>
-
-                <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
-
-                  JSON data flows
-
-                </span>
 
                 <span class="rounded-full bg-pink-500/15 px-3 py-1 text-pink-100">
 
@@ -891,7 +840,7 @@ body.theme-soft {
 
                 A mix of learning projects, vibes-driven interfaces, and experiments that
 
-                connect HTML/CSS front ends to JavaScript logic and backend‑style data.
+                connect HTML/CSS front ends to JavaScript logic.
 
               </p>
 
@@ -903,7 +852,6 @@ body.theme-soft {
 
           <div class="grid gap-5 md:grid-cols-3">
 
-            <!-- Project 1 -->
 
             <article
 
@@ -913,13 +861,11 @@ body.theme-soft {
 
               <div class="space-y-2">
 
-                <h3 class="text-sm font-semibold text-pink-50">Neo-Terminal Landing Page</h3>
+                <h3 class="text-sm font-semibold text-pink-50">AI Misalignment: The Case for Caution</h3>
 
                 <p class="text-[11px] text-pink-100/80">
 
-                  A single-page site styled like a hacker console but soft and pink,
-
-                  featuring command-line navigation and glowing UI elements.
+                 A website that makes information on ai misalignment easily understandable for the average ai consumer. <a href="https://eucalipsis.neocities.org/airesearch"> find here!</a>
 
                 </p>
 
@@ -957,7 +903,6 @@ body.theme-soft {
 
 
 
-            <!-- Project 2 -->
 
             <article
 
@@ -1009,9 +954,6 @@ body.theme-soft {
 
             </article>
 
-
-
-            <!-- Project 3 -->
 
             <article
 
@@ -1069,8 +1011,6 @@ body.theme-soft {
 
 
 
-        <!-- CONTACT SECTION -->
-
         <section id="contact" class="section-wrapper mx-auto space-y-6">
 
           <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -1107,7 +1047,7 @@ body.theme-soft {
 
           >
 
-            <!-- Contact form (frontend only) -->
+
 
            <form
 
@@ -1217,7 +1157,7 @@ body.theme-soft {
 
 
 
-            <!-- Contact info / social -->
+
 
             <div class="space-y-4 rounded-2xl border border-pink-400/30 bg-black/40 p-5">
 
@@ -1295,7 +1235,7 @@ body.theme-soft {
 
 
 
-      <!-- FOOTER -->
+
 
       <footer class="border-t border-pink-500/10 bg-black/40 py-4">
 
@@ -1303,7 +1243,7 @@ body.theme-soft {
 
           <p>
 
-            &copy; <span id="year"></span> Mohawk front-end student. Built with HTML, CSS,
+            &copy; 2025 Miryam Ali. Built with HTML, CSS,
 
             JS &amp; way too many pink gradients.
 
@@ -1329,11 +1269,11 @@ body.theme-soft {
 
 
 
-    <!-- SCRIPTS -->
+
 
     <script>
 
-      // Smooth scrolling for internal links
+
 
       document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
@@ -1359,7 +1299,6 @@ body.theme-soft {
 
 
 
-      // Back to top
 
       const backToTopBtn = document.getElementById('backToTop');
 
@@ -1375,13 +1314,12 @@ body.theme-soft {
 
 
 
-      // Dynamic year
 
       document.getElementById('year').textContent = new Date().getFullYear();
 
 
 
-      // Typewriter effect
+
 
       const typewriterElement = document.getElementById('typewriter');
 
@@ -1679,7 +1617,6 @@ body.theme-soft {
 
       }
 
-// Contact form (AJAX submission to Formspree)
 
       const contactForm = document.getElementById('contactForm');
 
@@ -1713,7 +1650,7 @@ body.theme-soft {
 
               headers: {
 
-                'Accept': 'application/json' // Request JSON response from Formspree
+                'Accept': 'application/json' 
 
               }
 
@@ -1725,11 +1662,11 @@ body.theme-soft {
 
               formStatus.textContent = 'Message sent! Thanks for reaching out.';
 
-              form.reset(); // Clear the form fields
+              form.reset(); 
 
             } else {
 
-              // Handle errors from Formspree
+            
 
               const responseData = await response.json();
 
@@ -1747,7 +1684,6 @@ body.theme-soft {
 
           } catch (error) {
 
-            // Handle network errors
 
             formStatus.textContent = 'Network error. Please check your connection.';
 
