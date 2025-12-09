@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
 
+    <!-- Tailwind CSS CDN v4 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style>
@@ -159,7 +160,7 @@
     </style>
   </head>
 
-  <body class="bg-grid min-h-screen text-pink-50 antialiased">
+  <body class="bg-grid min-h-screen text-pink-50 antialiased overflow-x-hidden">
 
     <div class="orb orb-pink w-[420px] h-[420px] -top-24 -left-10"></div>
     <div class="orb orb-purple w-[380px] h-[380px] top-40 -right-10"></div>
@@ -176,7 +177,7 @@
             </div>
             <div>
               <p class="text-xs uppercase tracking-[0.3em] text-pink-200/70">
-                Mohawk Software Engineering
+                Miryam Ali
               </p>
               <p class="text-sm font-semibold text-pink-50">
                 Front-End Dev in Training
@@ -193,7 +194,7 @@
               id="themeToggle"
               class="btn-shine rounded-full border border-pink-400/60 bg-pink-500/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-pink-100 shadow-[0_0_18px_rgba(236,72,153,0.6)] hover:border-pink-300 hover:bg-pink-500/30"
             >
-              ✦ toggle vibe
+              ✦ toggle colours
             </button>
           </div>
         </nav>
@@ -221,7 +222,7 @@
             </h1>
             <p class="max-w-xl text-sm text-pink-100/80">
               I live where <span class="font-semibold text-pink-200">HTML & CSS</span>
-              meet the backend, and where I'm starting to learn the
+              meet the backend, and I'm starting to learn the
               <span class="font-semibold text-pink-200">logic</span> behind the scenes.
               I love fun, techy UIs, terminal vibes, and building interfaces
               that feel like they belong in a sci‑fi movie, but still make sense to real
@@ -336,6 +337,7 @@
           </div>
 
           <div class="grid gap-5 md:grid-cols-3">
+            <!-- Column 1 -->
             <div class="space-y-3 rounded-2xl border border-pink-400/30 bg-black/40 p-4">
               <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-pink-200">
                 Core Front-End
@@ -356,6 +358,7 @@
               </div>
             </div>
 
+            <!-- Column 2 -->
             <div class="space-y-3 rounded-2xl border border-pink-400/30 bg-black/40 p-4">
               <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-pink-200">
                 Loading... (Next Sem)
@@ -370,6 +373,7 @@
               </div>
             </div>
 
+            <!-- Column 3 -->
             <div class="space-y-3 rounded-2xl border border-pink-400/30 bg-black/40 p-4">
               <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-pink-200">
                 Connecting to Backend
@@ -401,6 +405,7 @@
           </div>
         </section>
 
+        <!-- PROJECTS SECTION -->
         <section id="projects" class="section-wrapper mx-auto space-y-6">
           <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
@@ -614,7 +619,7 @@
         <div class="mx-auto flex w-full max-w-5xl items-center justify-between px-4 text-[10px] text-pink-200/80">
           <p>
             © 2025 Miryam Ali. Built with HTML, CSS,
-            & a little bit of learning script.
+            & Javascript nightmares...
           </p>
           <button
             id="backToTop"
@@ -653,10 +658,10 @@
       const typewriterElement = document.getElementById('typewriter');
       const phrases = [
         'front-end focused • learning by building',
-        'HTML & CSS waiting for their JavaScript brains',
+        'HTML & CSS',
         'terminal aesthetics, pop culture references, cozy UI',
         'small projects now → big, delightful interfaces later',
-        'curious about AI, but still loves simple clean code'
+        'AI nerd, AMA!'
       ];
       let currentPhraseIndex = 0;
       let currentCharIndex = 0;
